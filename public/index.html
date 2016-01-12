@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Server Send Events (SSE) Example</title>
+  </head>
+  <body>
+    <h1>Server Send Events (SSE) Example</h1>
+    <h2>Results:</h2>
+    <div id="results"></div>
+    <script>
+      function writeResults(text) {
+        document.getElementById('results').innerHTML += text + '<br>';
+      }
+
+      var source = new EventSource('/events');
+
+      source.onopen = () => writeResults('Started receiving events');
+
+      source.onmessage = (event) => writeResults(event.data);
+
+      source.onerror = (event) => {
+        if (event.readyState == EventSource.CLOSED) {
+          writeResults('Connection was closed.');
+        } else {
+          writeResults('Something went wrong!');
+        }
+        source.close();
+      };
+    </script>
+  </body>
+</html>

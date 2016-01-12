@@ -1,0 +1,20 @@
+{
+  "name": "sse-example",
+  "version": "0.0.0",
+  "description": "Server Send Events (SSE) example server and client.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": "alefteris/sse-example",
+  "keywords": [
+    "sse"
+  ],
+  "author": "Thanos Lefteris <alefteris@gmail.com> (http://thanoslefteris.com/)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "connect-sse": "^1.2.0",
+    "express": "^4.13.3"
+  }
+}
